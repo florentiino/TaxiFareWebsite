@@ -30,7 +30,7 @@ url = f'https://taxifare.lewagon.ai/predict?pickup_datetime={day}%2017:18:00&pic
 st.write(f'{url}')
 response = requests.get(url, params='prediction')
 jsonResponse = response.json()
-st.write(f'It is going to be {int(jsonResponse["prediction"])} Bucks')
+st.write(f'It is going to be {jsonResponse["prediction"]} Bucks')
 
 df = pd.DataFrame({'lon': [float(pickup_lon), float(dropoff_lon)],
                    'lat': [float(pickup_lat), float(dropoff_lat)]})
